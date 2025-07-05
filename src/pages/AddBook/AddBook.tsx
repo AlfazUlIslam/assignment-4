@@ -68,23 +68,24 @@ const AddBook: React.FC = () => {
     <div>
         <h2 className="w-full text-center mt-6 font-bold text-4xl 
         text-slate-800">
-            AddBook
+            Add A Book
         </h2>
+        {/* w-96 */}
         <form 
-            className="w-96 bg-white p-6 rounded-xl shadow-lg flex flex-col 
-            justify-center items-center gap-3 mx-auto mt-6"
+            className="w-[300px] bg-white p-6 rounded-xl shadow-lg flex flex-col 
+            justify-center items-center gap-3 mx-auto mt-6 sm:w-96"
             onSubmit={handleSubmit}
         >
           <div className="w-full">
             <label className="w-full flex flex-col">
               Title:
               <input
-                    className="py-2 bg-slate-100 text-slate-500 px-1 
-                    rounded-lg"
-                    type="text"
-                    name="title"
-                    value={formData.title ?? ""}
-                    onChange={handleChange}
+                className="py-2 bg-slate-100 text-slate-500 px-4 
+                rounded-lg"
+                type="text"
+                name="title"
+                value={formData.title ?? ""}
+                onChange={handleChange}
               />
           </label>
           </div>
@@ -92,7 +93,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Author:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-1 
+                className="py-2 bg-slate-100 text-slate-500 px-4 
                 rounded-lg"
                 type="text"
                 name="author"
@@ -105,7 +106,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Genre:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-1 
+                className="py-2 bg-slate-100 text-slate-500 px-4 
                 rounded-lg"
                 type="text"
                 name="genre"
@@ -118,7 +119,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               ISBN:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-1 
+                className="py-2 bg-slate-100 text-slate-500 px-4 
                 rounded-lg"
                 type="text"
                 name="isbn"
@@ -131,7 +132,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Description:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-1 
+                className="py-2 bg-slate-100 text-slate-500 px-4 
                 rounded-lg"
                 type="text"
                 name="description"
@@ -144,7 +145,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Copies:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-1 
+                className="py-2 bg-slate-100 text-slate-500 px-4 
                 rounded-lg"
                 type="number"
                 name="copies"

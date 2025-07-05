@@ -46,7 +46,8 @@ const BorrowSummary: React.FC = () => {
       {/* Pagination buttons */}
       <div className="mt-[1rem] flex justify-center items-center">
         <button 
-          className="px-4 py-2 rounded-lg bg-blue-600 text-white"
+          className={`px-4 py-2 rounded-lg bg-blue-600 text-white 
+          ${page === 1 ? "opacity-50" : "opacity-100"}`}
           onClick={handlePrevious} 
           disabled={page === 1}
         >
@@ -56,8 +57,10 @@ const BorrowSummary: React.FC = () => {
           Page {page} of {totalPages}
         </span>
         <button 
-          className="px-4 py-2 rounded-lg bg-blue-600 text-white"
-          onClick={handleNext} disabled={page === totalPages}
+          className={`px-4 py-2 rounded-lg bg-blue-600 text-white 
+          ${page === totalPages ? "opacity-50" : "opacity-100"}`}
+          onClick={handleNext} 
+          disabled={page === totalPages}
         >
           Next
         </button>

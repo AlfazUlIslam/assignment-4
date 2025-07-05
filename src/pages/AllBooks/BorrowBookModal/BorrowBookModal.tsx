@@ -71,13 +71,17 @@ const BorrowBookModal: React.FC<IProps> = (props) => {
     return (
         <div className="modal">
             <div className="modal-content">
-
             <form 
-            className="w-96 bg-white p-6 rounded-xl shadow-lg flex flex-col 
-            justify-center items-center gap-3 mx-auto mt-6" 
-            onSubmit={handleSubmit}>
-                <h2  className="w-full text-center mb-3 font-bold text-4xl 
-            text-slate-800">Borrow Book: {book.title}</h2>
+                className="w-[300px] bg-white p-6 rounded-xl shadow-lg flex flex-col 
+                justify-center items-center gap-3 mx-auto mt-32 sm:w-96" 
+                onSubmit={handleSubmit}
+            >
+                <h2 
+                    className="w-full text-center mb-3 font-bold text-4xl 
+                    text-slate-800"
+                >
+                    Borrow Book: {book.title}
+                </h2>
                 <div>
                     <label>
                         Quantity:
@@ -103,15 +107,22 @@ const BorrowBookModal: React.FC<IProps> = (props) => {
                     />
                 </label>
                 <button 
-                className="bg-blue-500 w-full text-gray-100 py-2 
-                rounded-xl hover:bg-blue-600 transition-all duration-1000"
-                type="submit" disabled={isBorrowing}>
+                    className="bg-blue-500 w-full text-gray-100 
+                    py-2 rounded-lg hover:bg-blue-600 transition-all 
+                    duration-1000"
+                    type="submit" 
+                    disabled={isBorrowing}
+                >
                     {isBorrowing ? "Borrowing..." : "Borrow Book"}
                 </button>
                 <button 
-                className="bg-blue-500 w-full text-gray-100 py-2 
-                rounded-xl hover:bg-blue-600 transition-all duration-1000"
-                type="button" onClick={onClose}>Cancel</button>
+                    className="bg-blue-500 w-full text-gray-100 py-2 
+                    rounded-lg hover:bg-blue-600 transition-all duration-1000"
+                    type="button" 
+                    onClick={onClose}
+                >
+                    Cancel
+                </button>
             </form>
             </div>
         </div>

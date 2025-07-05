@@ -47,19 +47,22 @@ const EditBookModal: React.FC<IProps> = (props) => {
         <div className="modal">
             <div className="modal-content">
             <form
-                className="w-96 bg-white p-6 rounded-xl shadow-lg flex flex-col 
-                justify-center items-center gap-3 mx-auto mt-6" 
+                className="w-[300px] bg-white p-6 rounded-xl shadow-lg 
+                flex flex-col justify-center items-center gap-3 mx-auto 
+                mt-6 sm:w-96" 
                 onSubmit={handleSubmit}
             >
-                <h2 className="w-full text-center mb-3 font-bold text-4xl 
-            text-slate-800">
-                Edit Book
-            </h2>
+                <h2 
+                    className="w-full text-center mb-3 font-bold text-4xl 
+                    text-slate-800"
+                >
+                    Edit Book
+                </h2>
                 <div className="w-full">
                     <label className="w-full flex flex-col">
                     Title:
                     <input
-                    className="py-2 bg-slate-100 text-slate-500 px-1 
+                    className="py-2 bg-slate-200 text-slate-600 px-4 
                     rounded-lg"
                     name="title" value={formData.title || ""} onChange={handleChange} />
                     </label>
@@ -68,7 +71,7 @@ const EditBookModal: React.FC<IProps> = (props) => {
                     <label className="w-full flex flex-col">
                     Author:
                     <input 
-                    className="py-2 bg-slate-100 text-slate-500 px-1 
+                    className="py-2 bg-slate-200 text-slate-600 px-4 
                     rounded-lg"
                     name="author" value={formData.author || ""} onChange={handleChange} />
                     </label>
@@ -77,7 +80,7 @@ const EditBookModal: React.FC<IProps> = (props) => {
                     <label className="w-full flex flex-col">
                     Genre:
                     <input 
-                    className="py-2 bg-slate-100 text-slate-500 px-1 
+                    className="py-2 bg-slate-200 text-slate-600 px-4 
                     rounded-lg"
                     name="genre" value={formData.genre || ""} onChange={handleChange} />
                     </label>
@@ -86,7 +89,7 @@ const EditBookModal: React.FC<IProps> = (props) => {
                     <label className="w-full flex flex-col">
                     ISBN:
                     <input 
-                    className="py-2 bg-slate-100 text-slate-500 px-1 
+                    className="py-2 bg-slate-200 text-slate-600 px-4 
                     rounded-lg"
                     name="isbn" value={formData.isbn || ""} onChange={handleChange} />
                     </label>
@@ -95,24 +98,30 @@ const EditBookModal: React.FC<IProps> = (props) => {
                     <label className="w-full flex flex-col">
                     Copies:
                     <input 
-                    className="py-2 bg-slate-100 text-slate-500 px-1 
+                    className="py-2 bg-slate-200 text-slate-600 px-4 
                     rounded-lg"
                     type="number" name="copies" value={formData.copies ?? 0} onChange={handleChange} />
                     </label>
                 </div>
                 <div className="w-full">
                     <button 
-                    className="bg-blue-500 w-full text-gray-100 py-2 
-                rounded-xl hover:bg-blue-600 transition-all duration-1000"
-                    type="submit" disabled={isUpdating}>
+                        className="bg-blue-500 w-full text-gray-100 py-2 
+                        rounded-lg hover:bg-blue-600 transition-all duration-1000"
+                        type="submit" 
+                        disabled={isUpdating}
+                    >
                     {isUpdating ? "Updating..." : "Update Book"}
                     </button>
                 </div>
                 <div className="w-full">
                     <button 
-                    className="bg-blue-500 w-full text-gray-100 py-2 
-                rounded-xl hover:bg-blue-600 transition-all duration-1000"
-                    type="button" onClick={onClose}>Cancel</button>
+                        className="bg-blue-500 w-full text-gray-100 py-2 
+                        rounded-lg hover:bg-blue-600 transition-all duration-1000"
+                        type="button" 
+                        onClick={onClose}
+                    >
+                        Cancel
+                    </button>
                 </div>
             </form>
             </div>

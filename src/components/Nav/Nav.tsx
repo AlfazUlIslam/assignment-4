@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
     // Nav
     <nav className="bg-black text-white">
       {/* Nav container */}
-      <div className="flex justify-start items-center px-6 md:px-20">
+      <div className="flex justify-start items-center py-2 px-6 md:px-20">
         {/* Nav logo */}
         <div className="font-bold text-[40px]">
           <Link to={"/"}>LOGO</Link>

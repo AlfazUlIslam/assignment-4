@@ -31,7 +31,10 @@ const BorrowSummary: React.FC = () => {
           </thead>
           <tbody className="divide-y divide-gray-100">
             {borrowItems.map((borrowItem, idx) => (
-              <tr className={`${idx % 2 === 0 ? "bg-white" : "bg-gray-200"}`}>
+              <tr 
+                key={idx}
+                className={`${idx % 2 === 0 ? "bg-white" : "bg-gray-200"}`}
+              >
                 <td className="whitespace-nowrap p-3 text-sm text-gray-700">{borrowItem.book.title}</td>
                 <td className="whitespace-nowrap p-3 text-sm text-gray-700">{borrowItem.book.isbn}</td>
                 <td className="whitespace-nowrap p-3 text-sm text-gray-700">{borrowItem.totalQuantity}</td>

@@ -8,7 +8,9 @@ function App() {
   return (
     <div className='app'>
       <Nav />
-      <Outlet />
+      <div className='h-[80vh]'>
+        <Outlet />
+      </div>
       <Footer />
       <ToastContainer />
     </div>

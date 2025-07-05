@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetBorrowSummaryQuery } from "../../features/books/booksApi";
+import Spinner from "../../components/Spinner/Spinner";
 
 const BorrowSummary: React.FC = () => {
   const [ page, setPage ] = React.useState<number>(1);
@@ -11,7 +12,7 @@ const BorrowSummary: React.FC = () => {
   const handlePrevious = () => setPage(prev => Math.max(prev - 1, 1));
   const handleNext = () => setPage(prev => Math.min(prev + 1, totalPages));
 
-  if (isLoading) return <div>Loading summary...</div>;
+  if (isLoading) return <Spinner />;
   if (error) return <div>Failed to load summary.</div>;
   if (!borrowItems) return null;
 

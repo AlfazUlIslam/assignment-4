@@ -5,6 +5,7 @@ import DeleteBookModal from "./DeleteBookModal/DeleteBookModal";
 import BorrowBookModal from "./BorrowBookModal/BorrowBookModal";
 import ViewBookModal from "./ViewBookModal/ViewBookModal";
 import { FaEdit, FaTrash, FaEye, FaBookOpen } from "react-icons/fa";
+import Spinner from "../../components/Spinner/Spinner";
 
 const AllBooks: React.FC = () => {
   const [editBookId, setEditBookId] = React.useState<string | null>(null);
@@ -21,15 +22,16 @@ const AllBooks: React.FC = () => {
   const handlePrevious = () => setPage(prev => Math.max(prev - 1, 1));
   const handleNext = () => setPage(prev => Math.min(prev + 1, totalPages));
 
+  if (isLoading) return <Spinner />;
+  if (error) return <div>Failed to load summary.</div>;
+  if (!books) return null;
+
   return (
     <div>
       <h2 className="w-full text-center mt-6 font-bold text-4xl 
-        text-slate-800 mb-3">All Books</h2>
-      {error ? (
-        <p>An error occurred</p>
-      ) : isLoading ? (
-        <p>Loading...</p>
-      ) : data ? (
+      text-slate-800 mb-3">
+        All Books
+      </h2>
         <div className="overflow-auto">
           <table className="w-full">
           <thead className="bg-gray-50 border-b-2 border-gray-200">
@@ -47,7 +49,8 @@ const AllBooks: React.FC = () => {
             {books.map((book, idx) => (
               <tr 
                 className={`${idx % 2 === 0 ? "bg-white" : "bg-gray-200"}`}
-                key={book._id}>
+                key={book._id}
+              >
                 <td className="whitespace-nowrap p-3 text-sm text-gray-700">{book.title}</td>
                 <td className="whitespace-nowrap p-3 text-sm text-gray-700">{book.author}</td>
                 <td className="whitespace-nowrap w-20 p-3 text-sm text-gray-700">{book.genre}</td>
@@ -58,7 +61,7 @@ const AllBooks: React.FC = () => {
                   tracking-wider ${book.available ? "text-green-800" 
                   : "text-red-800"} ${book.available ? "bg-green-200" 
                   : "bg-red-200"} rounded-lg bg-opacity-50`}>
-                    {book.available ? "In stock" : "Sold out"}
+                    {book.available ? "In stock" : "Out of Stock"}
                   </span>
                 </td>
                 <td className="whitespace-nowrap p-3 text-sm text-gray-700 space-x-2">
@@ -77,14 +80,11 @@ const AllBooks: React.FC = () => {
                     <FaEye />
                   </button>
                 </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              </tr>))}
+            </tbody>
+          </table>
         </div>
-      ) : null}
-      {/* Pagination buttons */}
-      <div className="mt-[1rem] flex justify-center items-center">
+        <div className="mt-[1rem] flex justify-center items-center">
           <button
             className={`px-4 py-2 rounded-lg bg-blue-600 text-white 
             ${page === 1 ? "opacity-50" : "opacity-100"}`}
@@ -104,23 +104,23 @@ const AllBooks: React.FC = () => {
           >
             Next
           </button>
-      </div>
-      {/* Edit book modal */}
-      {editBookId && (
-        <EditBookModal bookId={editBookId} onClose={() => setEditBookId(null)} />
-      )}
-      {/* Delete book modal */}
-      {deleteBookId && (
-        <DeleteBookModal bookId={deleteBookId} onClose={() => setDeleteBookId(null)} />
-      )}
-      {/* Borrow book modal */}
-      {borrowBookId && (
-        <BorrowBookModal bookId={borrowBookId} onClose={() => setBorrowBookId(null)} />
-      )}
-      {/* View book modal */}
-      {viewBookId && (
-        <ViewBookModal bookId={viewBookId} onClose={() => setViewBookId(null)} />
-      )}
+        </div>
+        {/* Edit book modal */}
+        {editBookId && (
+          <EditBookModal bookId={editBookId} onClose={() => setEditBookId(null)} />
+        )}
+        {/* Delete book modal */}
+        {deleteBookId && (
+          <DeleteBookModal bookId={deleteBookId} onClose={() => setDeleteBookId(null)} />
+        )}
+        {/* Borrow book modal */}
+        {borrowBookId && (
+          <BorrowBookModal bookId={borrowBookId} onClose={() => setBorrowBookId(null)} />
+        )}
+        {/* View book modal */}
+        {viewBookId && (
+          <ViewBookModal bookId={viewBookId} onClose={() => setViewBookId(null)} />
+        )}
     </div>
   )
 }

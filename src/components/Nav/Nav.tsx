@@ -13,7 +13,7 @@ const Nav: React.FC = () => {
 
   return (
     // Nav
-    <nav className="bg-black text-white">
+    <nav className="bg-slate-900 text-white">
       {/* Nav container */}
       <div className="flex justify-start items-center py-2 px-6 md:px-20">
         {/* Nav logo */}
@@ -37,8 +37,8 @@ const Nav: React.FC = () => {
           {/* Mobile menu */}
           {toggle && (
           <ul className="p-4 absolute right-[-20px] bottom-[-130px] 
-          text-black list-none font-semibold rounded-xl bg-white shadow-xl 
-          border border-slate-300">
+          text-black list-none font-semibold rounded-xl shadow-xl 
+          border border-slate-300 bg-slate-900 text-white">
             <NavLink to={"/books"} content={"Books"} />
             <NavLink to={"/create-book"} content={"Add Book"} />
             <NavLink to={"/borrow-summary"} content={"Borrow Summary"} />

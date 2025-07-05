@@ -65,6 +65,10 @@ const BorrowBookModal: React.FC<IProps> = (props) => {
         }
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        e.preventDefault();
+    };
+
     if (isLoading) return <div>Loading book...</div>;
     if (error || !book) return <div>Failed to load book.</div>;
 
@@ -85,15 +89,47 @@ const BorrowBookModal: React.FC<IProps> = (props) => {
                 <div>
                     <label>
                         Quantity:
-                        <input
-                            className="bg-slate-200"
-                            type="number"
-                            name="quantity"
-                            value={formData.quantity ?? 1}
-                            onChange={handleChange}
-                            min={1}
-                            max={book.copies}
-                        />
+                        <div className="flex items-center gap-2">
+                            {/* Decrement button */}
+                            <button
+                                type="button"
+                                className="px-3 py-1 bg-slate-300 rounded-lg text-slate-700"
+                                onClick={() =>
+                                    setFormData((prev) => ({
+                                        ...prev,
+                                        quantity: Math.max((prev.quantity ?? 0) - 1, 0),
+                                    }))
+                                }
+                                disabled={(formData.quantity ?? 0) <= 0}
+                            >
+                                -
+                            </button>
+                            {/* Quantity input */}
+                            <input
+                                className="bg-slate-200"
+                                type="number"
+                                name="quantity"
+                                value={formData.quantity ?? 1}
+                                onChange={handleChange}
+                                onKeyDown={handleKeyDown}
+                                min={1}
+                                max={book.copies}
+                            />
+                            {/* Increment button */}
+                             <button
+                                type="button"
+                                className="px-3 py-1 bg-slate-300 rounded-lg text-slate-700"
+                                onClick={() =>
+                                    setFormData((prev) => ({
+                                        ...prev,
+                                        quantity: Math.min((prev.quantity ?? 0) + 1, book.copies),
+                                    }))
+                                }
+                                disabled={(formData.quantity ?? 0) >= book.copies}
+                            >
+                                +
+                            </button>
+                        </div>
                     </label>
                 </div>
                 <label>

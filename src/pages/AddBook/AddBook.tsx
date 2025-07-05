@@ -13,7 +13,12 @@ const AddBook: React.FC = () => {
       const { name, value } = e.target;
       setFormData((prev) => ({
           ...prev,
-          [name]: name === 'copies' ? Number(value) : value,
+          [name]:
+            name === 'copies'
+                ? Number(value)
+                : name === 'genre'
+                ? value.toUpperCase()
+                : value
       }));
   };
 
@@ -70,7 +75,6 @@ const AddBook: React.FC = () => {
         text-slate-800">
             Add A Book
         </h2>
-        {/* w-96 */}
         <form 
             className="w-[300px] bg-white p-6 rounded-xl shadow-lg flex flex-col 
             justify-center items-center gap-3 mx-auto mt-6 sm:w-96"

@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='app'>
       <Nav />
-      <div className='h-[80vh]'>
+      <div className='h-[100vh]'>
         <Outlet />
       </div>
       <Footer />

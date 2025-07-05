@@ -80,7 +80,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Title:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-4 
+                className="py-2 bg-slate-200 text-slate-600 px-4 
                 rounded-lg"
                 type="text"
                 name="title"
@@ -93,7 +93,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Author:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-4 
+                className="py-2 bg-slate-200 text-slate-600 px-4 
                 rounded-lg"
                 type="text"
                 name="author"
@@ -106,7 +106,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Genre:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-4 
+                className="py-2 bg-slate-200 text-slate-600 px-4 
                 rounded-lg"
                 type="text"
                 name="genre"
@@ -119,7 +119,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               ISBN:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-4 
+                className="py-2 bg-slate-200 text-slate-600 px-4 
                 rounded-lg"
                 type="text"
                 name="isbn"
@@ -132,7 +132,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Description:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-4 
+                className="py-2 bg-slate-200 text-slate-600 px-4 
                 rounded-lg"
                 type="text"
                 name="description"
@@ -145,7 +145,7 @@ const AddBook: React.FC = () => {
             <label className="w-full flex flex-col">
               Copies:
               <input
-                className="py-2 bg-slate-100 text-slate-500 px-4 
+                className="py-2 bg-slate-200 text-slate-600 px-4 
                 rounded-lg"
                 type="number"
                 name="copies"
@@ -158,7 +158,7 @@ const AddBook: React.FC = () => {
             <div className="w-full">
                 <button 
                 className="bg-blue-500 w-full text-gray-100 py-2 
-                rounded-xl hover:bg-blue-600 transition-all duration-1000"
+                rounded-lg hover:bg-blue-600 transition-all duration-1000"
                 type="submit" 
                 disabled={isCreating}
             >
